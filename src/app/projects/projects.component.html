@@ -1,1 +1,19 @@
-<p>projects works!</p>
+<div>
+  <input
+      type="text"
+      name=""
+      id="project"
+      class="form-control"
+      [(ngModel)]="projectName"
+      />
+  <button (click)="onAddProject()" [disabled]="!projectName">Add New Project</button>
+
+  <ul>
+    <li *ngFor="let project of projects">
+      {{project.name}}
+    </li>
+  </ul>
+</div>
+
+
+
