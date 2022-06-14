@@ -9,8 +9,9 @@
   <button (click)="onAddProject()" [disabled]="!projectName">Add New Project</button>
 
   <ul>
-    <li *ngFor="let project of projects">
+    <li *ngFor="let project of projects; let i = index" >
       {{project.name}}
+      <button (click)="onRemoveProject(i)">REMOVE</button>
     </li>
   </ul>
 </div>

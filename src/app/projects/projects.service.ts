@@ -12,4 +12,10 @@ export class ProjectsService {
     this.projects.push(project)
     this.projectsChanged.emit(this.projects.slice())
   }
+
+  removeProject = (index:number) => {
+    this.projects.splice(index,1)
+    console.log(this.projects, index)
+    this.projectsChanged.emit(this.projects.slice())
+  }
 }

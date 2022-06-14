@@ -36,4 +36,8 @@ export class ProjectsComponent implements OnInit {
     this.projectName = ''
   }
 
+  onRemoveProject = (index: number) => {
+    this.projectsService.removeProject(index)
+  }
+
 }
