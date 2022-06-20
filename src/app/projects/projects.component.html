@@ -1,20 +1,34 @@
 <div>
-  <input
-      type="text"
-      name=""
-      id="project"
-      class="form-control"
-      [(ngModel)]="projectName"
-      />
-  <button (click)="onAddProject()" [disabled]="!projectName">Add New Project</button>
+	<input
+		type="text"
+		name=""
+		id="project"
+		class="form-control"
+		[(ngModel)]="projectName"
+	/>
+	<button (click)="onAddProject()" [disabled]="!projectName">
+		Add New Project
+	</button>
 
-  <ul>
-    <li *ngFor="let project of projects; let i = index" >
-      {{project.name}}
-      <button (click)="onRemoveProject(i)">REMOVE</button>
-    </li>
-  </ul>
+	<ul>
+		<li *ngFor="let project of projects; let i = index">
+			{{ project.name }}
+
+			<div *ngFor="let iteration of project.iterations; let index = index">
+				<p>Task: {{ iteration.task }}</p>
+				<p>Status: {{ iteration.status }}</p>
+			</div>
+			<hr />
+			<input
+				type="text"
+				name=""
+				id="project"
+				class="form-control"
+				[(ngModel)]="taskName"
+			/>
+			<button (click)="onAddIteration(i)">Add Task</button>
+			<hr />
+			<button (click)="onRemoveProject(i)">REMOVE</button>
+		</li>
+	</ul>
 </div>
-
-
-
