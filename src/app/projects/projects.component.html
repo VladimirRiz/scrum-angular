@@ -1,34 +1,32 @@
-<div>
+<div class="input-group mb-3">
 	<input
 		type="text"
-		name=""
-		id="project"
-		class="form-control"
+		class="form-control none-outline"
+		placeholder="Project Name"
+		aria-label="Project Name"
+		aria-describedby="button-addon2"
 		[(ngModel)]="projectName"
 	/>
-	<button (click)="onAddProject()" [disabled]="!projectName">
+	<button
+		class="btn btn-outline-secondary none-outline"
+		type="button"
+		id="button-addon2"
+		(click)="onAddProject()"
+		[disabled]="!projectName?.trim()"
+	>
 		Add New Project
 	</button>
-
-	<ul>
-		<li *ngFor="let project of projects; let i = index">
-			{{ project.name }}
-
-			<div *ngFor="let iteration of project.iterations; let index = index">
-				<p>Task: {{ iteration.task }}</p>
-				<p>Status: {{ iteration.status }}</p>
-			</div>
-			<hr />
-			<input
-				type="text"
-				name=""
-				id="project"
-				class="form-control"
-				[(ngModel)]="taskName"
-			/>
-			<button (click)="onAddIteration(i)">Add Task</button>
-			<hr />
-			<button (click)="onRemoveProject(i)">REMOVE</button>
-		</li>
-	</ul>
 </div>
+<hr />
+<div class="container">
+	<div class="row">
+		<app-iterations
+			class="col-4"
+			*ngFor="let projectEl of projects; let i = index"
+			[project]="projectEl"
+			[index]="i"
+		></app-iterations>
+	</div>
+</div>
+
+<!-- [index]="i" -->

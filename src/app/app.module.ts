@@ -7,20 +7,21 @@ import { ProjectsComponent } from './projects/projects.component';
 import { BacklogComponent } from './backlog/backlog.component';
 import { CardComponent } from './card/card.component';
 import { FormsModule } from '@angular/forms';
+import { IterationsComponent } from './iterations/iterations.component';
+import { IterationComponent } from './iterations/iteration/iteration.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    ProjectsComponent,
-    BacklogComponent,
-    CardComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		HeaderComponent,
+		ProjectsComponent,
+		BacklogComponent,
+		CardComponent,
+		IterationsComponent,
+		IterationComponent,
+	],
+	imports: [BrowserModule, FormsModule],
+	providers: [],
+	bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

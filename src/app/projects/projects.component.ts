@@ -12,7 +12,7 @@ export class ProjectsComponent implements OnInit {
 	projects: Project[] = [];
 	isDisabled: boolean = true;
 	projectName!: string;
-	taskName!: string;
+
 	// @ViewChild('projectInput', {static:false}) projectInputRef!: ElementRef;
 
 	constructor(private projectsService: ProjectsService) {}
@@ -20,6 +20,7 @@ export class ProjectsComponent implements OnInit {
 	ngOnInit(): void {
 		this.projects = this.projectsService.getProject();
 		this.projectsService.projectsChanged.subscribe((projects: Project[]) => {
+			console.log(projects);
 			this.projects = projects;
 		});
 	}
@@ -33,14 +34,5 @@ export class ProjectsComponent implements OnInit {
 		const project = new Project(name, []);
 		this.projectsService.addProject(project);
 		this.projectName = '';
-	};
-
-	onRemoveProject = (index: number) => {
-		this.projectsService.removeProject(index);
-	};
-
-	onAddIteration = (index: number) => {
-		const task = this.taskName;
-		this.projectsService.addTask(task, index);
 	};
 }
